@@ -6,11 +6,14 @@ console.log("preinstall script running...");
 
 const firebaseConfig = "firebase.nativescript.json";
 const tslintConfig = "tslint.json";
+// NOTE: Remove this when nativescript-angular@6.0.0 is released
+const ng6tgz = "nativescript-angular-6.0.0-rc.0.tgz"
 
 getAppRootFolder()
     .then((appRootFolder) => Promise.all([
         copyConfig(firebaseConfig, appRootFolder),
-        copyConfig(tslintConfig, appRootFolder)
+        copyConfig(tslintConfig, appRootFolder),
+        copyConfig(ng6tgz, appRootFolder)
     ]));
 
 function copyConfig(configFilename, appRootFolder) {
